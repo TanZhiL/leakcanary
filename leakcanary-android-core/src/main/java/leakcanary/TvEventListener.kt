@@ -22,6 +22,12 @@ object TvEventListener : EventListener {
         showToast(event.heapAnalysis)
         printIntentInfo()
       }
+      is Event.HeapDump -> {
+        val resumedActivity = InternalLeakCanary.resumedActivity ?: return
+        TvToast.makeText(resumedActivity, "发生内存泄漏啦,使用Profiler查看详情!!!")
+          .show()
+      }
+      else -> {}
     }
   }
 

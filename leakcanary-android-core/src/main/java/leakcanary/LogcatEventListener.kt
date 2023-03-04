@@ -23,6 +23,9 @@ object LogcatEventListener : EventListener {
         val percent =  (event.progressPercent * 100).toInt()
         SharkLog.d { "Analysis in progress, $percent% done, working on ${event.step.humanReadableName}" }
       }
+      is Event.HeapDump -> {
+        SharkLog.d { "发生内存泄漏啦,使用Profiler查看详情!!!" }
+      }
       is HeapAnalysisDone<*> ->  {
         SharkLog.d { "\u200B\n${LeakTraceWrapper.wrap(event.heapAnalysis.toString(), 120)}" }
       }

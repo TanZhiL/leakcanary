@@ -200,12 +200,12 @@ object LeakCanary {
       LazyForwardingEventListener {
         if (InternalLeakCanary.formFactor == TV) TvEventListener else NotificationEventListener
       },
-      when {
-          RemoteWorkManagerHeapAnalyzer.remoteLeakCanaryServiceInClasspath ->
-            RemoteWorkManagerHeapAnalyzer
-          WorkManagerHeapAnalyzer.validWorkManagerInClasspath -> WorkManagerHeapAnalyzer
-          else -> BackgroundThreadHeapAnalyzer
-      }
+//      when {
+//          RemoteWorkManagerHeapAnalyzer.remoteLeakCanaryServiceInClasspath ->
+//            RemoteWorkManagerHeapAnalyzer
+//          WorkManagerHeapAnalyzer.validWorkManagerInClasspath -> WorkManagerHeapAnalyzer
+//          else -> BackgroundThreadHeapAnalyzer
+//      }
     ),
 
     /**
