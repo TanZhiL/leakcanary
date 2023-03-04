@@ -1,6 +1,6 @@
-include ':leakcanary-android'
-include ':leakcanary-android-core'
-include ':leakcanary-android-instrumentation'
+//include ':leakcanary-android'
+//include ':leakcanary-android-core'
+/*include ':leakcanary-android-instrumentation'
 include ':leakcanary-android-process'
 include ':leakcanary-android-release'
 include ':leakcanary-android-sample'
@@ -23,6 +23,6 @@ include ':shark-hprof'
 include ':shark-hprof-test'
 include ':shark-log'
 include ':shark-test'
-include ':leakcanary-deobfuscation-gradle-plugin'
+include ':leakcanary-deobfuscation-gradle-plugin'*/
 
-enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+include ':myapplication'

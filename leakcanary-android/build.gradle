@@ -1,9 +1,9 @@
 plugins {
   id("com.android.library")
   id("org.jetbrains.kotlin.android")
-  id("com.vanniktech.maven.publish")
+//  id("com.vanniktech.maven.publish")
 }
-
+apply from:"${rootDir}${File.separator}upload_maven.gradle"
 dependencies {
   api projects.leakcanaryAndroidCore
   // AppWatcher auto installer
