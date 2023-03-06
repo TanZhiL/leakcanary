@@ -11,10 +11,10 @@ dependencies {
   api projects.leakcanaryObjectWatcherAndroidAndroidx
   api projects.leakcanaryObjectWatcherAndroidSupportFragments*/
   implementation kotlin_stdlib
-  implementation "com.squareup.leakcanary:leakcanary-android:2.10"
-  implementation "com.squareup.leakcanary:leakcanary-object-watcher-android-core:2.10"
-  implementation "com.squareup.leakcanary:leakcanary-object-watcher-android-androidx:2.10"
-  implementation "com.squareup.leakcanary:leakcanary-object-watcher-android-support-fragments:2.10"
+  api "com.squareup.leakcanary:shark-android:2.10"
+  api "com.squareup.leakcanary:leakcanary-object-watcher-android-core:2.10"
+  api "com.squareup.leakcanary:leakcanary-object-watcher-android-androidx:2.10"
+  api "com.squareup.leakcanary:leakcanary-object-watcher-android-support-fragments:2.10"
 
   // Optional dependency
   compileOnly androidX_work_runtime
