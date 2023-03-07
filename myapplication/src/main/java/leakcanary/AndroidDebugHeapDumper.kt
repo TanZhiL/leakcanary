@@ -11,6 +11,6 @@ import java.io.File
  */
 object AndroidDebugHeapDumper : HeapDumper {
   override fun dumpHeap(heapDumpFile: File) {
-    Debug.dumpHprofData(heapDumpFile.absolutePath)
+  //  Debug.dumpHprofData(heapDumpFile.absolutePath)
   }
 }

@@ -158,7 +158,7 @@ internal class HeapDumpTrigger(
     val visibility = if (applicationVisible) "visible" else "not visible"
     dumpHeap(
       retainedReferenceCount = retainedReferenceCount,
-      retry = true,
+      retry = false,
       reason = "$retainedReferenceCount retained objects, app is $visibility"
     )
   }
@@ -187,13 +187,13 @@ internal class HeapDumpTrigger(
       durationMillis = measureDurationMillis {
         configProvider().heapDumper.dumpHeap(heapDumpFile)
       }
-      if (heapDumpFile.length() == 0L) {
-        throw RuntimeException("Dumped heap file is 0 byte length")
-      }
       lastDisplayedRetainedObjectCount = 0
       lastHeapDumpUptimeMillis = SystemClock.uptimeMillis()
       objectWatcher.clearObjectsWatchedBefore(heapDumpUptimeMillis)
       currentEventUniqueId = UUID.randomUUID().toString()
+      if (heapDumpFile.length() == 0L) {
+        throw RuntimeException("Dumped heap file is 0 byte length")
+      }
       InternalLeakCanary.sendEvent(HeapDump(currentEventUniqueId!!, heapDumpFile, durationMillis, reason))
     } catch (throwable: Throwable) {
       InternalLeakCanary.sendEvent(HeapDumpFailed(currentEventUniqueId!!, throwable, retry))
